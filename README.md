@@ -14,6 +14,17 @@ Built with **Vite**, **Tailwind CSS**, and **Lucide Icons**.
 | UI/UX           | • Animated loading pulses & transitions<br>• Live status badges<br>• Rich content preview pane        |
 | Accessibility   | • Full keyboard support (arrow keys, _Enter_, _Esc_, _Backspace_)<br>• Screen-reader friendly labels |
 
+### Detailed Features
+
+- 🎯 **Multi-level Navigation**: Navigate through infinite nested levels with breadcrumb support
+- ⚡ **Lazy Loading**: Children are loaded on-demand with prefetching on hover
+- ♾️ **Infinite Scrolling**: Load more items as you scroll
+- ⌨️ **Keyboard Navigation**: Full keyboard support with shortcuts
+- 🎨 **Beautiful UI**: Modern design with smooth animations and transitions
+- 📱 **Responsive**: Optimized for different screen sizes
+- 🔍 **Smart Breadcrumbs**: Intelligent breadcrumb that collapses when too many levels
+- 💾 **State Management**: Comprehensive state management with loading states
+
 ---
 
 ## 📦 Tech Stack
@@ -39,7 +50,7 @@ The app will be available at `http://localhost:5173`.
 
 ---
 
-## 🗂️ Project Structure (relevant parts)
+## 🗂️ Project Structure
 
 ```
 src/
@@ -72,19 +83,48 @@ src/
 
 ---
 
-## 🔧 Customisation
+## 🔧 Customization
 
-1. **Replace Mock API**  
-   Swap out the functions in `src/components/Sidebar/utils/mockData.ts` with real API calls that return the same shape:
-   ```ts
-   export const mockApiCall = async (parentId: string, cursor?: string | null) => {
-     // Call your backend instead
-     const res = await fetch(`/api/items/${parentId}?cursor=${cursor ?? ""}`);
-     return res.json();
-   };
-   ```
-2. **Styling**  
-   Tailwind classes are used throughout; tweak them directly in JSX or extend the Tailwind config if you need brand colours, fonts, etc.
+### 1. Replace Mock API
+Swap out the functions in `src/components/Sidebar/utils/mockData.ts` with real API calls that return the same shape:
+```ts
+export const mockApiCall = async (parentId: string, cursor?: string | null) => {
+  // Call your backend instead
+  const res = await fetch(`/api/items/${parentId}?cursor=${cursor ?? ""}`);
+  return res.json();
+};
+```
+
+### 2. Styling
+The component uses Tailwind CSS for styling. You can customize by:
+1. Modifying Tailwind classes in the components
+2. Updating the custom CSS in `styles.css`
+3. Adjusting the Tailwind configuration
+
+---
+
+## 🏗️ Architecture
+
+### State Management
+The component uses React hooks for state management:
+- `navigationStack`: Tracks navigation history
+- `itemsData`: Caches loaded items
+- `loadingItems`: Tracks loading states
+- `selectedItem`: Currently selected item
+
+### Performance Optimizations
+- **Memoization**: Uses `useCallback` to prevent unnecessary re-renders
+- **Refs**: Uses refs for DOM manipulation without re-renders
+- **Lazy Loading**: Loads data only when needed
+- **Debouncing**: Hover prefetching is debounced to prevent excessive API calls
+
+---
+
+## 🌐 Browser Support
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ---
 
