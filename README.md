@@ -29,24 +29,51 @@ Built with **Vite**, **Tailwind CSS**, and **Lucide Icons**.
 
 ## 📦 Tech Stack
 
-* React 18 + TypeScript  
-* Vite (dev/build tooling)  
-* Tailwind CSS  
-* Lucide-React icon set  
+* React 19.x + TypeScript 5.8.3
+* Vite 7.x (dev/build tooling)  
+* Tailwind CSS 4.x
+* Lucide-React 0.542.0
 
 ---
 
 ## 🚀 Getting Started
 
-```bash
-# 1) Install dependencies
-pnpm install   # or: npm install / yarn install
+### Installation
 
-# 2) Run the dev server
-pnpm dev       # or: npm run dev / yarn dev
+First, make sure you have pnpm installed globally. If not, install it using:
+```bash
+npm install -g pnpm
+```
+
+Then run:
+```bash
+# Install dependencies
+pnpm install
+
+# Run the dev server
+pnpm dev
+
+# Other available commands
+pnpm build    # Build for production
+pnpm lint     # Run ESLint
+pnpm preview  # Preview production build
 ```
 
 The app will be available at `http://localhost:5173`.
+
+### Troubleshooting Installation
+
+If you encounter installation issues:
+```bash
+# Clear pnpm store
+pnpm store prune
+
+# Clean install dependencies
+pnpm install --force
+
+# If you still have issues, try cleaning the cache
+pnpm store prune && pnpm install --force
+```
 
 ---
 
